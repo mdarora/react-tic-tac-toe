@@ -4,20 +4,30 @@ const initialGameState = ["","","","","","","","",""];
 const App = () => {
 
   const [gameState, setgameState] = useState(initialGameState);
+  const [isXTurn, setIsXTurn] = useState(true);
+
+  const squareClicked = (i,e) =>{
+    let arr = Array.from(gameState);
+    if (!e.target.textContent){
+      arr[i] = isXTurn? "X" : "0";
+      setgameState(arr);
+      setIsXTurn(!isXTurn);
+    }
+  }
 
   return (
     <div className="app">
       <h1>Tic Tac Toe</h1>
       <div className="square-container">
-        <div className="squares">{gameState[0]}</div>
-        <div className="squares">{gameState[1]}</div>
-        <div className="squares">{gameState[2]}</div>
-        <div className="squares">{gameState[3]}</div>
-        <div className="squares">{gameState[4]}</div>
-        <div className="squares">{gameState[5]}</div>
-        <div className="squares">{gameState[6]}</div>
-        <div className="squares">{gameState[7]}</div>
-        <div className="squares">{gameState[8]}</div>
+        <div className="squares" onClick={(e)=> squareClicked(0,e)}>{gameState[0]}</div>
+        <div className="squares" onClick={(e)=> squareClicked(1,e)}>{gameState[1]}</div>
+        <div className="squares" onClick={(e)=> squareClicked(2,e)}>{gameState[2]}</div>
+        <div className="squares" onClick={(e)=> squareClicked(3,e)}>{gameState[3]}</div>
+        <div className="squares" onClick={(e)=> squareClicked(4,e)}>{gameState[4]}</div>
+        <div className="squares" onClick={(e)=> squareClicked(5,e)}>{gameState[5]}</div>
+        <div className="squares" onClick={(e)=> squareClicked(6,e)}>{gameState[6]}</div>
+        <div className="squares" onClick={(e)=> squareClicked(7,e)}>{gameState[7]}</div>
+        <div className="squares" onClick={(e)=> squareClicked(8,e)}>{gameState[8]}</div>
       </div>
       <div className="clear-btn">
         <button onClick={() => setgameState(initialGameState)}>Clear Game</button>

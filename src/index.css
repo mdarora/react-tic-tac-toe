@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -38,9 +39,13 @@ h1 {
 .squares {
     width: 75px;
     height: 75px;
+    cursor: pointer;
     line-height: 75px;
     text-align: center;
+    user-select: none;
+    font-size: 2.5rem;
     border: 2px solid aqua;
+    font-family: 'Arvo', serif;
 }
 
 .squares:nth-child(1),
@@ -73,10 +78,16 @@ h1 {
 
 .clear-btn button {
     border: none;
+    cursor: pointer;
     color: #252525;
     font-weight: bold;
     padding: .5rem .8rem;
     border-radius: .5rem;
-    background-color: aqua;
     letter-spacing: 1px;
+    background-color: aqua;
+}
+
+p {
+    margin-top: .5rem;
+    font-size: .6rem;
 }
