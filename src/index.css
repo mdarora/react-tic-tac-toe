@@ -52,6 +52,10 @@ small {
     font-family: 'Arvo', serif;
 }
 
+.wins {
+    color: green;
+}
+
 .squares:nth-child(1),
 .squares:nth-child(2),
 .squares:nth-child(3) {

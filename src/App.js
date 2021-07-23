@@ -15,6 +15,16 @@ const App = () => {
     }
   };
 
+  const clearGame = () =>{
+    const squareEls = document.getElementsByClassName("squares");
+    
+    for (let i = 0; i < squareEls.length; i++) {
+      squareEls[i].classList.remove("wins");
+    }
+
+    setgameState(initialGameState);
+  }
+
   const findWinner = (squares) => {
     const lines = [
       [0, 1, 2],
@@ -27,9 +37,14 @@ const App = () => {
       [2, 4, 6],
     ];
 
+    const squareEls = document.getElementsByClassName("squares");
+
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+        squareEls[a].classList.add("wins");
+        squareEls[b].classList.add("wins");
+        squareEls[c].classList.add("wins");
         return squares[a];
       }
     }
@@ -45,11 +60,13 @@ const App = () => {
   useEffect(() => {
     const result = findWinner(gameState);
     if(result && result !== "Draw"){
-      alert(`${result} has won.`);
-      setgameState(initialGameState);
+      setTimeout(() => {
+        alert(`${result} has won.`);
+        clearGame();
+      }, 500);
     } else if (result) {
       alert('Match Draw');
-      setgameState(initialGameState);
+      clearGame();
     }
   }, [gameState]);
 
@@ -69,7 +86,7 @@ const App = () => {
         <div className="squares" onClick={(e)=> squareClicked(8,e)}>{gameState[8]}</div>
       </div>
       <div className="clear-btn">
-        <button onClick={() => setgameState(initialGameState)}>Clear Game</button>
+        <button onClick={clearGame}>Clear Game</button>
       </div>
     </div>
   )
