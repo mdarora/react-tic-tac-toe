@@ -56,6 +56,7 @@ const App = () => {
   return (
     <div className="app">
       <h1>Tic Tac Toe</h1>
+      <small>Play for <b>{isXTurn? "X" : "0"}</b></small>
       <div className="square-container">
         <div className="squares" onClick={(e)=> squareClicked(0,e)}>{gameState[0]}</div>
         <div className="squares" onClick={(e)=> squareClicked(1,e)}>{gameState[1]}</div>

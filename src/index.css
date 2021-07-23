@@ -27,8 +27,12 @@ code {
 }
 
 h1 {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     color: aqua;
+}
+
+small {
+    margin-bottom: 1rem;
 }
 
 .square-container {
